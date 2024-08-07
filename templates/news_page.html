@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ super() }}
+{% endblock %}
+
+{% block pagename %}
+    <h1>Новости</h1>
+{% endblock %}
+
+{% block left_page %}
+    <div class='left_menu'>
+        <blockquote><a href="{{ url_for('main:main_page') }}">Главная страница</a></blockquote>
+        <blockquote><a href="">Новости</a> </blockquote>
+        <blockquote><a href="{{ url_for('registration:page_registration') }}">Регистрация</a> </blockquote>
+    </div>
+{% endblock %}
+
+{% block centre_page %}
+    <div class="centre_menu">
+                {% for new in news %}
+            <h2>{{ new.title }}</h2>
+            <p>{{ new.summary }}</p>
+            <p><img src="{{ new.img_url }}" width="850" height="450" alt=""></p>
+            <p>{{ new.created_at }}
+                    <button disabled>Для чтения статьи, Вам необходимо авторизоваться</button>
+            </p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block right_page %}
+    {{ super() }}
+{% endblock %}

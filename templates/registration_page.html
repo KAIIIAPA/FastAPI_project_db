@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ super() }}
+{% endblock %}
+
+{% block pagename %}
+    <h1>Регистрация</h1>
+{% endblock %}
+
+{% block left_page %}
+    <div class='left_menu'>
+        <blockquote><a href="{{ url_for('main:main_page') }}">Главная страница</a></blockquote>
+        <blockquote><a href="{{ url_for('news:page_news') }}">Новости</a> </blockquote>
+        <blockquote><a href="">Регистрация</a> </blockquote>
+    </div>
+{% endblock %}
+
+{% block centre_page %}
+    <div class="centre_menu">
+        {% if len_info != 0 %}
+        <h1>{{ error }}</h1>
+        {% endif %}
+        <form method="post">
+            <p><label for='username'>Введите логин </label>
+            <input type="text" id="username" name="username" maxlength="30" required></p>
+
+            <p><label for='password'>Введите пароль </label>
+            <input type="text" id="password" name="password" minlength="8" required></p>
+
+            <p><label for='repeat_password'>Повторите пароль </label>
+            <input type="text" id="repeat_password" name="repeat_password" minlength="8" required></p>
+
+            <p><label for='age'>Введите ваш возраст </label>
+            <input type="text" id="age" name="age" maxlength="3" required></p>
+
+            <p><label for='email'>Введите ваш email </label>
+            <input type="text" id="email" name="email" required></p>
+
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+        <h1> <div style="text-align: center;">{{ wellcome }}</div> </h1>
+    </div>
+{% endblock %}
+
+{% block right_page %}
+    {{ super() }}
+{% endblock %}

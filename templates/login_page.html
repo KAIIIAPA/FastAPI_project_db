@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block pagename %}
+    <h1>Авторизация пользователя</h1>
+{% endblock %}
+
+{% block left_page %}
+    <div class='left_menu'>
+        <blockquote><a href="{{ url_for('main:main_page') }}">Главная страница</a></blockquote>
+        <blockquote><a href="{{ url_for('news:page_news') }}">Новости</a> </blockquote>
+        <blockquote><a href="{{ url_for('registration:page_registration') }}">Регистрация</a> </blockquote>
+    </div>
+{% endblock %}
+
+{% block centre_page %}
+    <div class="centre_menu">
+        {{ error }}
+        <form method="POST">
+            <div class="input-block">
+                <blockquote><label for="username">Логин</label>
+                <input id="username" type="text" name="username"></blockquote>
+            </div>
+
+            <div class="input-block">
+                <blockquote><label for="password">Пароль</label>
+                <input id="password" type="text" name="password"></blockquote>
+            </div>
+
+            <h1>{{ context }}</h1>
+
+            <div class="button_block">
+                <blockquote><button>Войти</button></blockquote>
+            </div>
+                </form>
+    </div>
+{% endblock %}

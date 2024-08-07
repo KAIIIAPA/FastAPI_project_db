@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
+    <title>My Blog</title>
+</head>
+<body>
+    <header>
+        {% block pagename %}
+        <h1>Мир новостей</h1>
+        {% endblock %}
+    </header>
+
+    <div class="container">
+
+        {% block left_page %}
+        <div class='left_menu'>
+            <blockquote><a href="">Главная страница</a></blockquote>
+            <blockquote><a href="{{ url_for('news:page_news') }}">Новости</a> </blockquote>
+            <blockquote><a href="{{ url_for('registration:page_registration') }}">Регистрация</a> </blockquote>
+        </div>
+        {% endblock %}
+
+        {% block centre_page %}
+        <div class="centre_menu">
+        </div>
+        {% endblock %}
+
+        {% block right_page %}
+        <div class="right_menu">
+                <div class="button_block">
+                <a>Hello, AnonymousUser!</a>
+                <div class="button_block">
+                    <blockquote><a href="{{ url_for('login:login_page') }}"><button>Войти</button></a></blockquote>
+                </div>
+                </div>
+        </div>
+        {% endblock %}
+    </div>
+</body>
+</html>
