@@ -19,7 +19,7 @@
             <p>{{ new.summary }}</p>
             <img src="{{ new.img_url }}" width="850" height="450" alt="">
             <p>{{ new.created_at }}
-                <button disabled>Для чтения статьи, Вам необходимо авторизоваться</button>
+                <a href="/news/{{ new.id }}"><button >Читать полностью</button></a>
             </p>
         {% endfor %}
         <div class="button_block_centre">
